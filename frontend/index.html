@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Secure University E-Voting System</title>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+background:#f4f6f9;
+margin:0;
+padding:0;
+}
+
+header{
+background:#1e3a8a;
+color:white;
+padding:20px;
+text-align:center;
+}
+
+.container{
+width:90%;
+margin:auto;
+margin-top:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+margin-bottom:20px;
+border-radius:8px;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+input,select{
+width:100%;
+padding:10px;
+margin-top:8px;
+margin-bottom:12px;
+border-radius:5px;
+border:1px solid #ccc;
+}
+
+button{
+padding:10px 15px;
+border:none;
+border-radius:5px;
+background:#1e3a8a;
+color:white;
+cursor:pointer;
+margin-top:5px;
+}
+
+button:hover{
+background:#2c4ed8;
+}
+
+.logout{
+background:#c62828;
+}
+
+.logout:hover{
+background:#a31515;
+}
+
+.election-card{
+border:1px solid #ddd;
+padding:15px;
+margin-top:10px;
+border-radius:6px;
+}
+
+.candidate-card{
+border:1px solid #ccc;
+padding:10px;
+margin-top:10px;
+border-radius:5px;
+background:#fafafa;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h2>Secure University E-Voting System</h2>
+</header>
+
+<div class="container">
+
+<!-- LOGIN / REGISTER SECTION -->
+
+<div id="login-section" class="card">
+
+<h3>Login</h3>
+
+<input id="email" placeholder="Email">
+<input id="password" type="password" placeholder="Password">
+
+<button onclick="login()">Login</button>
+
+<hr>
+
+<h3>Create Account</h3>
+
+<input id="reg-name" placeholder="Full Name">
+<input id="reg-email" placeholder="Email">
+<input id="reg-password" type="password" placeholder="Password">
+
+<button onclick="register()">Create Account</button>
+
+<p id="message"></p>
+
+</div>
+
+
+<!-- STUDENT DASHBOARD -->
+
+<div id="student-dashboard" class="card" style="display:none">
+
+<h3>Student Dashboard</h3>
+
+<button class="logout" onclick="logout()">Logout</button>
+
+<h4>Available Elections</h4>
+
+<div id="elections"></div>
+
+</div>
+
+
+<!-- ADMIN DASHBOARD -->
+
+<div id="admin-dashboard" class="card" style="display:none">
+
+<h3>Admin Dashboard</h3>
+
+<button class="logout" onclick="logout()">Logout</button>
+
+<h4>Create Election</h4>
+
+<input id="election-title" placeholder="Election Title">
+
+<select id="election-type">
+<option value="candidate">Candidate Election</option>
+<option value="referendum">Referendum</option>
+</select>
+
+<label>Start Date</label>
+<input id="start-date" type="date">
+
+<label>End Date</label>
+<input id="end-date" type="date">
+
+<button onclick="createElection()">Create Election</button>
+
+<hr>
+
+<h4>Add Candidate</h4>
+
+<input id="candidate-name" placeholder="Candidate Name">
+<input id="candidate-manifesto" placeholder="Candidate Manifesto">
+<input id="candidate-election" placeholder="Election ID">
+
+<button onclick="addCandidate()">Add Candidate</button>
+
+<p id="admin-message"></p>
+
+</div>
+
+</div>
+
+<!-- LINK TO JAVASCRIPT -->
+<script src="app.js"></script>
+
+</body>
+</html>
